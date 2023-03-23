@@ -9,11 +9,7 @@ MONGO_URL - Database url from mongodb.com.
 ```
 
 ## Deploy
-<p>
-<a href="https://heroku.com/deploy">
-  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
-</a>
-</p>
+[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/reeshuxd/approverbot)
 
 ## Local Deploy
 ```
