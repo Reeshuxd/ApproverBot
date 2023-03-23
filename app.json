@@ -1,0 +1,35 @@
+{
+    "name": "Approver Bot",
+    "description": "Telegram bot to approver upcoming join requests.",
+    "keywords": [
+          "telegram",
+          "telegram-bot",
+          "golang",
+          "gotgbot"
+      ],
+    "repository": "https://github.com/Reeshuxd/ApproverBot",
+    "website": "https://t.me/reeshuxd",
+    "success_url": "https://t.me/AboutReechu",
+    "env": {
+      "TOKEN": {
+        "description": "Bot Token, Get It From @BotFather.",
+        "value": "",
+        "required": true
+      },
+      "OWNER_ID": {
+        "description": "Your telegram user id.",
+        "value": "",
+        "required": true
+      },
+      "MONGO_URL": {
+        "description": "Database url from mongodb.com.",
+        "value": "",
+        "required": true
+      }
+    },
+    "buildpacks": [
+      {
+        "url": "heroku/go"
+      }
+    ]
+  }
