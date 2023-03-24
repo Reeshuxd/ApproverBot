@@ -1,4 +1,4 @@
-module GoBot
+module ApproverBot
 
 go 1.17
 
