@@ -1,1 +1,1 @@
-worker: bin/GoBot
+worker: bin/ApproverBot
