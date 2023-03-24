@@ -9,7 +9,7 @@
 package plugs
 
 import (
-	"GoBot/db"
+	"ApproverBot/db"
 	"fmt"
 	"os"
 	"strconv"

@@ -9,7 +9,7 @@
 package plugs
 
 import (
-	"GoBot/db"
+	"ApproverBot/db"
 
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"

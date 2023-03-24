@@ -9,7 +9,7 @@
 package main
 
 import (
-	"GoBot/plugs"
+	"ApproverBot/plugs"
 	"fmt"
 	"log"
 	"net/http"
