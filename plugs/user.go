@@ -18,6 +18,9 @@ import (
 )
 
 func Stats(bot *gotgbot.Bot, ctx *ext.Context) error {
+	if ctx.EffectiveUser.Id != OID {
+		return nil
+	}
 	users := db.GetUsers()
 	msg := fmt.Sprintf("**Users:** %v", len(users))
 	bot.SendMessage(
@@ -29,6 +32,9 @@ func Stats(bot *gotgbot.Bot, ctx *ext.Context) error {
 }
 
 func Broadcast(bot *gotgbot.Bot, ctx *ext.Context) error {
+	if ctx.EffectiveUser.Id != OID {
+		return nil
+	}
 	chat := ctx.EffectiveChat
 	msg, _ := bot.SendMessage(
 		chat.Id,
