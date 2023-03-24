@@ -18,7 +18,7 @@ func Start(bot *gotgbot.Bot, ctx *ext.Context) error {
 <b>Heya,</b> I am developed for accepting new coming join requests in a channel.
 I am made with <a href="go.dev">golang</a> langauge for a better performance.
 
-<b>(c) Made by <a href="github.com/reeshuxd/ApproverBot>Reeshu</a></b>"
+<b>(c) Made by <a href="https://github.com/reeshuxd/ApproverBot">Reeshu</a></b>
 	`
 	ctx.EffectiveMessage.Reply(bot, text, &gotgbot.SendMessageOpts{
 		ParseMode: "html",
