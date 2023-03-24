@@ -21,7 +21,8 @@ I am made with <a href="go.dev">golang</a> langauge for a better performance.
 <b>(c) Made by <a href="https://github.com/reeshuxd/ApproverBot">Reeshu</a></b>
 	`
 	ctx.EffectiveMessage.Reply(bot, text, &gotgbot.SendMessageOpts{
-		ParseMode: "html",
+		ParseMode:             "html",
+		DisableWebPagePreview: true,
 		ReplyMarkup: gotgbot.InlineKeyboardMarkup{
 			InlineKeyboard: [][]gotgbot.InlineKeyboardButton{
 				{
@@ -51,14 +52,15 @@ func MenuCB(bot *gotgbot.Bot, ctx *ext.Context) error {
 /bcast (reply_to_message) - To send broadcast to the users.
 
 <i>Thanks for using the bot.💖</i>
-<b>(c) Made by <a href="github.com/reeshuxd/ApproverBot>Reeshu</a></b>"
+<b>(c) Made by <a href="github.com/reeshuxd/ApproverBot">Reeshu</a></b>
 	`
 	cb := ctx.Update.CallbackQuery
 	cb.Message.EditText(
 		bot,
 		text,
 		&gotgbot.EditMessageTextOpts{
-			ParseMode: "html",
+			ParseMode:             "html",
+			DisableWebPagePreview: true,
 		},
 	)
 	return nil
