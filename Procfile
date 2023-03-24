@@ -1,1 +1,1 @@
-worker: bin/ApproverBot
+worker: go run main.go
