@@ -49,21 +49,25 @@ func Broadcast(bot *gotgbot.Bot, ctx *ext.Context) error {
 			&gotgbot.EditMessageTextOpts{},
 		)
 	}
-	pass := 0
-	for _, u := range users {
-		user := strconv.Itoa(int(u["user_id"].(int64)))
-		use, _ := strconv.ParseInt(user, 10, 64)
-		bot.SendMessage(
-			use,
+	fail := 0
+	for _, user := range users {
+		ui := fmt.Sprintf("%v", user["user_id"])
+		uid, _ := strconv.ParseInt(ui, 10, 64)
+		_, err := bot.SendMessage(
+			uid,
 			ctx.EffectiveMessage.ReplyToMessage.Text,
 			&gotgbot.SendMessageOpts{ParseMode: "html"},
 		)
-		pass += 1
+		if err != nil {
+			fmt.Println("Failed Bcast:", err.Error())
+			fail++
+			continue
+		}
 	}
-	msg.EditText(
-		bot,
-		fmt.Sprintf("Broadcast succesfuull!\nFailed: %v", (len(users)-pass)),
-		&gotgbot.EditMessageTextOpts{ParseMode: "markdown"},
+	bot.SendMessage(
+		chat.Id,
+		fmt.Sprintf("Broadcast succesfuull!\nFailed: %v", fail),
+		&gotgbot.SendMessageOpts{ParseMode: "markdown"},
 	)
 	return nil
 }
