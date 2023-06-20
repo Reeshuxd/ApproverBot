@@ -56,18 +56,20 @@ func Broadcast(bot *gotgbot.Bot, ctx *ext.Context) error {
 		_, err := bot.SendMessage(
 			uid,
 			ctx.EffectiveMessage.ReplyToMessage.Text,
-			&gotgbot.SendMessageOpts{ParseMode: "html"},
+			&gotgbot.SendMessageOpts{ParseMode: "markdown"},
 		)
 		if err != nil {
-			fmt.Println("Failed Bcast:", err.Error())
 			fail++
+			msg.EditText(bot, fmt.Sprintf("Failed - %v", fail), nil)
 			continue
 		}
 	}
+
+	msg.Delete(bot, nil)
 	bot.SendMessage(
 		chat.Id,
-		fmt.Sprintf("Broadcast succesfuull!\nFailed: %v", fail),
-		&gotgbot.SendMessageOpts{ParseMode: "markdown"},
+		fmt.Sprintf("*Broadcast succesfuull!*\n__Failed: %v__", fail),
+		&gotgbot.SendMessageOpts{ParseMode: "markdown "},
 	)
 	return nil
 }
