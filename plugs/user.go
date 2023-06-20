@@ -42,7 +42,7 @@ func Broadcast(bot *gotgbot.Bot, ctx *ext.Context) error {
 		&gotgbot.SendMessageOpts{ParseMode: "markdown"},
 	)
 	users := db.GetUsers()
-	if ctx.EffectiveMessage.ReplyToMessage == nil {
+	if ctx.EffectiveMessage.ReplyToMessage == nil || ctx.EffectiveMessage.ReplyToMessage.Text == "" {
 		msg.EditText(
 			bot,
 			"Reply to a message to broadcast.",
